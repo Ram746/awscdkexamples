@@ -1,0 +1,26 @@
+import java.util.HashMap;
+import java.util.HashSet;
+
+class IsSubsetSumAvailable {
+	  
+   
+        public static void main(String[] args)
+    {
+  
+        int n = 5;
+        int a[] = { 1, 5, 3, 7, 4 };
+        HashMap<Integer,Integer> set = new HashMap<>();
+        for(int i=0; i<a.length; ++i)
+        {
+        	set.put(i,a[i]);
+        }
+        int requiredSum = 12;
+         for (int i = 0; i <= a.length-1; i++) {
+        	 int temp = requiredSum-a[i];
+            if(set.containsValue(temp)) {
+            	
+            	System.out.println("subset found at "+i);
+             break;
+            }
+         }}
+}
