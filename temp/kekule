@@ -1,0 +1,91 @@
+
+*****events binding in kekule.widget.base***************
+Kekule.X.Event.addListener(target, events[i], this.reactUiEventBind);
+*******actual stroke on canvas***************************
+doneDraw: function(context, options)
+*************on hover on cells*********************
+var result = this.doDraw(context, baseCoord, ops); in kekule.render.base.js
+drawCircle: function(ctx, baseCoord, radius, options)
+******all elements initialization************************
+initialize: function(/*$super, */symbolOrAtomicNumber) in kekule.elements.js
+*****************************************************install all listeners*********************
+installGlobalEventHandlers: function(target) in kekule.widget.base.js
+******************imp in event exequation to find handle*******************************
+var uiElem = this.getEditor().getUiEventReceiverElem() in kekule.chemEditor.baseEditors.js
+
+*****
+when we pass event name we were getting handler like below and how?
+var handlerList = this.getEventHandlerList(eventName); in classes.js
+
+*****
+close: function(/*$super, */result) -->in close we calling getChemObj while load mol data in kekule.chemWidget.dialogs.js
+
+*******
+analysisCTab --> here we were extracting atoms and bonds data in kekule.io.mdl2000.js
+******
+Kekule.Bond-->Kekule.ChemStructureConnector-->Kekule.BaseStructureConnector
+*******
+getExtraProp2: function(obj1, obj2, propName)-->we will get actual drawing coardinates here in kekule.common.js
+this._implementation.get(key); in get-->Kekule.MapEx = Class.create(   --> kekule.common.js
+actual coardinates will store in _implementation in Kekule.MapEx
+
+******
+__$__k__p__dataDetails  -->storing file data.
+"__$__k__p__lines"      --> storing data.
+transformCtabCoords2DToContext in kekule.render.renderer2D.js
+******
+there were several predefined configs are available to render in kekule.render.config.js
+******
+this.prepareTransformParams(context, baseCoord, options); method causing to attach matrices to options in kekule.render.renderer2D.js
+*******
+drawing happening in below method while upload moledata
+doDrawCore: function(context, chemObj, options, finalTransformOptions)--->this.doDrawConnectors(context, group, chemObj, options, finalTransformOptions);
+in kekule.render.renderer2D.js
+var elem = this.doDrawConnector(context, group, connector, ctab, ops, finalTransformOptions);
+doneDraw: function(context, options)-->final method to draw line while uploading moldata in kekule.render.canvasRenderer.js
+****************we can find move move on empty area or bonds and molecules************************
+var obj = this.getTopmostInteractableObjAtCurrPointerPos(); in kekule.chemEditor.baseEditors.js
+doBeforeDispatchUiEvent  in kekule.chemEditor.baseEditors.js
+if (Kekule.Render.MetaShapeUtils.isCoordInside(coord, bound, inflation)) in kekule.render.boundInfoRecorder.js
+******to get property value************************************
+this.getPropStoreFieldValue('drawBridge')
+***************need to check what is there in below classes ****************************
+var OU = Kekule.ObjUtils;
+var AU = Kekule.ArrayUtils;
+var EU = Kekule.HtmlElementUtils;
+var CU = Kekule.CoordUtils;
+*********several fields were explored in this method**************************
+addDefBond: function(startCoord, startObj, notifyEditor) in kekule.chemEditor.chemSpaceEditors.js
+*******both coardinates will formed coard1,coard2**************************
+doDrawConnectorShape: function(context, connector, nodes, renderOptions, finalTransformOptions) in kekule.render.renderer2D.js
+transform2DByMatrix: function(coord, transformMatrix) in kekule.utils.js
+************************design load *****************************************
+if (!this.getCommonBtnGroup())
+			this.createCommonToolbar();
+		if (!this.getChemBtnGroup())
+			this.createChemToolbar();
+		if (!this.getZoomBtnGroup())
+			this.createZoomToolbar(); in kekule.chemEditor.composers.js
+		
+******************** elements added onload*********************
+bindElement in kekule.widget.base.js
+*******************adding button icons to toolbar************************
+_insertChildWidget in kekule.widget.containers.js
+*********************Matrix calcultions are happening ************************
+	calcTransform2DMatrix: function(options, reverseOrder) in kekule.utils.js
+****************clear widget functionality************************************
+bindAssocActions in kekule.chemEditor.composers.js
+*************************************calculated coardinates push to the matrix *********************************
+transformObjCoord2DToContext  in kekule.render.renderer2D.js
+this.setTransformedCoord2D(context, obj, newCoord);
+**************************atom is associating with Atom class*****************************
+when we do mouse down on atom how that is associated with Atom ?
+how to get second coardinate when we mouse down event?
+Ans:: every atom linked with other atom and bond
+ans: this method responsible for to fetch second coardinates
+var endCoord = this.addDefBond(coord, obj, true); in kekule.chemEditor.chemSpaceEditors.js
+stack trace----
+getSurroundingObjs (kekule.chemEditor.editorUtils.js:38)
+getNewBondDefAngle (kekule.chemEditor.configs.js:481)
+getNewBondDefAngle (kekule.chemEditor.chemSpaceEditors.js:4005)
+addDefBond (kekule.chemEditor.chemSpaceEditors.js:4056)
